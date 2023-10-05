@@ -39,6 +39,10 @@ input{
     font-weight: 700;
     border-radius: 10px;
 }
+input:hover{
+    box-shadow: 1px 2px 2px 1px gray;
+    transition: 0.5s ease;
+}
 input.efface{
     background-color: red;
 }
