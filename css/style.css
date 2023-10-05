@@ -30,6 +30,7 @@ main{
 p , div.column {
     background-color :green;
     max-width: 20rem;
+    border: 1px solid yellowgreen;
 
 }
 input{
@@ -37,4 +38,10 @@ input{
     min-width: 3rem;
     font-weight: 700;
     border-radius: 10px;
+}
+input.efface{
+    background-color: red;
+}
+input.egal{
+    background-color: blue;
 }
