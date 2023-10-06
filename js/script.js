@@ -21,7 +21,8 @@ let tabInput = [];
 let tabInputs = document.querySelectorAll("input");
 console.log(tabInputs);
 
-
+// Variable pour stocker l'expression en cours de saisie
+let expression = '';
 
 tabInputs.forEach((element) => {
     element.addEventListener("click", calculate)
@@ -35,16 +36,29 @@ tabInputs.forEach((element) => {
 function calculate(event) {
     // récupère la valeur de chaque bouton
     console.log(typeof event.target.value);
-    if (event.target.value == "CE") {
-        // je vais placer la value DANS mon screen
+    if (event.target.value == "ON/C") {
+        // je vais clear mon screen
         
-        document.getElementById("screen").textContent = "";
+        document.getElementById("screen").textContent = " ";
+    } else if (event.target.value == "CE"){
+
+        // Effacez le dernier caractère de l'expression
+        document.getElementById("screen").textContent  = document.getElementById("screen").textContent.slice(0, -1); 
         
     } else if (event.target.value == "=") {
-        // eval
-        // console.log(event.target.value);
-    } else {
         // concatèner sur notre écran les éléments sur lesquelles on clique
+        // console.log("faire =");
+        document.getElementById("screen").textContent += event.target.value;
+    } else if (event.target.value == "X") {
+        console.log("c'est un fois");
+
+   
+
+    } else {
+        document.getElementById("screen").textContent += eval(event.target.value);
+        
+        // console.log(event.target.value);
+
 
     }
 }
