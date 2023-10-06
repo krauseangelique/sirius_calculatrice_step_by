@@ -48,14 +48,33 @@ function calculate(event) {
     } else if (event.target.value == "=") {
         // concatèner sur notre écran les éléments sur lesquelles on clique
         // console.log("faire =");
-        document.getElementById("screen").textContent += event.target.value;
+        
+       // document.getElementById("screen").textContent += eval(event.target.value);
+       /*
+       Il semble que vous ayez rencontré une erreur avec l'opération eval(event.target.value) lorsque l'utilisateur clique sur le bouton "=" dans votre calculatrice. L'erreur se produit parce que eval est utilisé pour évaluer une chaîne JavaScript en tant que code, mais ici, vous essayez de l'évaluer comme une valeur, ce qui provoque une erreur.
+
+Pour résoudre cette erreur et obtenir le résultat de l'expression en cours, vous devez stocker l'expression dans une variable, puis utilisez eval pour évaluer cette expression. 
+       */
+
+       try { // évalue l'expression ave eval()
+        const resultatCalcul = eval(event.target.value);
+        document.getElementById("screen").textContent = resultatCalcul;
+
+       } catch (error) {
+        document.getElementById("screen").textContent = 'Erreur';
+        event.target.value = "";
+       }
     } else if (event.target.value == "X") {
-        console.log("c'est un fois");
-
-   
-
+        event.target.value = "*";
+        // console.log("c'est un fois");
+        // envoi pour le caractère X, l'opérateur * dans l'écran
+        document.getElementById("screen").textContent += event.target.value;
+        
+        
+        
     } else {
-        document.getElementById("screen").textContent += eval(event.target.value);
+        document.getElementById("screen").textContent += event.target.value;
+        
         
         // console.log(event.target.value);
 
