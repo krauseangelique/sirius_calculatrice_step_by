@@ -21,17 +21,7 @@ let tabInput = [];
 let tabInputs = document.querySelectorAll("input");
 console.log(tabInputs);
 
-function calculate(event) {
-    // récupère la valeur de chaque bouton
-    console.log(event.target.value);
-    if (event.target.value === Number) {
-        // je vais placer la value DANS mon screen
-        screen += event.target.value;
-        
-    } else {
-        console.log(event.target.value);
-    }
-}
+
 
 tabInputs.forEach((element) => {
     element.addEventListener("click", calculate)
@@ -42,6 +32,22 @@ tabInputs.forEach((element) => {
 */
 
 
+function calculate(event) {
+    // récupère la valeur de chaque bouton
+    console.log(typeof event.target.value);
+    if (event.target.value == "CE") {
+        // je vais placer la value DANS mon screen
+        
+        document.getElementById("screen").textContent = "";
+        
+    } else if (event.target.value == "=") {
+        // eval
+        // console.log(event.target.value);
+    } else {
+        // concatèner sur notre écran les éléments sur lesquelles on clique
 
-console.log(eval('2 + 2'));
-// Expected output: 4 La fonction eval() permet d'évaluer du code JavaScript représenté sous forme d'une chaîne de caractères.
+    }
+}
+
+
+console.log(eval('2 + 2'));// Expected output: 4 La fonction eval() permet d'évaluer du code JavaScript représenté sous forme d'une chaîne de caractères.
